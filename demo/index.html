@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background: #fafafa;
+    }
+  </style>
+</head>
+<body>
+  <div id="demo"></div>
+
+  <div id="demo2">
+    <h2>Example no attributes</h2>
+    <mustad-menu></mustad-menu>
+
+    <h2>Example restaurant=kafekroken</h2>
+    <mustad-menu restaurant="kafekroken"></mustad-menu>
+
+    <h2>Example restaurant=kafekroken day="Mandag"</h2>
+    <mustad-menu restaurant="kafekroken" day="Mandag"></mustad-menu>
+
+    <h2>Example restaurant=brightcafe</h2>
+    <mustad-menu restaurant="brightcafe"></mustad-menu>
+
+    <h2>Example restaurant=brightcafe day="Torsdag"</h2>
+    <mustad-menu restaurant="brightcafe" day="Torsdag"></mustad-menu>
+
+  </div>
+
+  <script type="module" src="../mustad-menu.js"></script>
+  <!-- <script type="module">
+    // import { html, render } from 'lit';
+    import '../mustad-menu.js';
+  </script> -->
+
+  <!-- <script type="module">
+    import { html, render } from 'lit';
+    import '../mustad-menu.js';
+
+    const title = 'Hello owc World!';
+    render(
+      html`
+        <mustad-menu .title=${title}>
+          some light-dom
+        </mustad-menu>
+      `,
+      document.querySelector('#demo')
+    );
+  </script> -->
+
+</body>
+</html>
