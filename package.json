@@ -1,5 +1,5 @@
 {
-  "name": "mustad-menu",
+  "name": "@carlosvicient/mustad-menu",
   "description": "Webcomponent mustad-menu following open-wc recommendations",
   "license": "MIT",
   "author": "mustad-menu",
@@ -47,5 +47,13 @@
       "eslint --fix",
       "prettier --write"
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosvicient/mustad-menu.git"
+  },
+  "bugs": {
+    "url": "https://github.com/carlosvicient/mustad-menu/issues"
+  },
+  "homepage": "https://github.com/carlosvicient/mustad-menu#readme"
 }
