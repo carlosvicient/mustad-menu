@@ -63,8 +63,13 @@ class Scraper {
   }
 
   async getHTML() {
+    const headers = {};
     const src = this.urlSrc;
-    const rsp = await fetch(src);
+    const rsp = await fetch(src, {
+      method: 'GET',
+      mode: 'cors',
+      headers,
+    });
     const rslt = await rsp.text();
     // if( this.removeCRLF ) rslt = rslt.replace(/\n/g,'').replace(/\r/g,'')
     this.scrapedHTML = await rslt;
