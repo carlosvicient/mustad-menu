@@ -6,19 +6,13 @@ The webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recom
 
 ## Installation
 
+### Via npm
+
 ```bash
 npm i @carlosvicient/mustad-menu
 ```
 
-## Usage
-
-```html
-<script type="module">
-  import '@carlosvicient/mustad-menu/mustad-menu.js';
-</script>
-
-<mustad-menu restaurant="kafekroken" day="Mandag"></mustad-menu>
-```
+### Via CDN
 
 You can also import the component in static pages using a CDN.
 
@@ -41,6 +35,22 @@ Then, you can use the component as you like. For example:
 ````html
 <mustad-menu day="Onsdag"></mustad-menu>
 ````
+
+## Usage
+
+### Via npm
+
+```html
+<script type="module">
+  import '@carlosvicient/mustad-menu/mustad-menu.js';
+</script>
+
+<mustad-menu restaurant="kafekroken" day="Mandag"></mustad-menu>
+```
+
+### Via CDN
+
+Just install the component as explained in the previous section (via CDN) and then use it as a normal html element.
 
 Here you have a snippet you can try with some examples:
 
@@ -96,7 +106,9 @@ Here you have a snippet you can try with some examples:
 </html>
 ````
 
-### restaurant
+#### HTML attributes used to config the element
+
+##### restaurant
 
 Restaurant specifies the name of the "kantina" we want to retrieve the menu from. It only accepts two values. Be careful, the value is case sensitive.
 
@@ -107,7 +119,7 @@ Restaurant specifies the name of the "kantina" we want to retrieve the menu from
 
 When this attribute is not specified, it defaults to "kafekroken".
 
-### day
+##### day
 
 It represents the day of the week. Menus are only available from Monday to Friday. It only accepts the day of the week in _Norwegian_ and it is case sensitive.
 
@@ -121,7 +133,45 @@ It represents the day of the week. Menus are only available from Monday to Frida
 | Fredag  |
 | Lørdag  |
 
-When this attribute is not specified, it defaults to "kafekroken".
+When this attribute is not specified, it defaults to today's day of the week.
+
+#### hide-restaurant
+
+The name of the restaurant will be hidden if the attribute exists or it is set to `true`. 
+
+````html
+<mustad-menu hide-restaurant></mustad-menu>
+<!-- or -->
+<mustad-menu hide-restaurant="true"></mustad-menu>
+<!-- or -->
+<mustad-menu hide-restaurant="false"></mustad-menu>
+````
+
+#### hide-day
+
+The name of the day will be hidden if the attribute exists or it is set to `true`. 
+
+````html
+<mustad-menu hide-day></mustad-menu>
+<!-- or -->
+<mustad-menu hide-day="true"></mustad-menu>
+<!-- or -->
+<mustad-menu hide-day="false"></mustad-menu>
+````
+
+#### hide-refresh
+
+The refresh button will be hidden if the attribute exists or it is set to `true`.
+
+The component caches the page for 1 week by default.
+
+````html
+<mustad-menu hide-refresh></mustad-menu>
+<!-- or -->
+<mustad-menu hide-refresh="true"></mustad-menu>
+<!-- or -->
+<mustad-menu hide-refresh="false"></mustad-menu>
+````
 
 ## Custom styles
 

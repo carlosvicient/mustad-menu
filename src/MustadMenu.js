@@ -17,6 +17,11 @@ const RESTAURANTS = {
   brightcafe: 'https://mustadkantine.no/brightcafe',
 };
 
+const RESTAURANT_ALIAS = {
+  kafekroken: 'Kafé Kroken',
+  brightcafe: 'Brigth Café',
+};
+
 /**
  * Returns the norwegian name of the day of the week represented by "day".
  * @param {day} day of the week from 0 to 6 where 0 is sunday.
@@ -195,6 +200,10 @@ export class MustadMenu extends LitElement {
       :host .error {
         color: var(--mustad-menu-error-color, #cc0000);
       }
+
+      :host .menu-container .hide {
+        display: none;
+      }
     `;
   }
 
@@ -204,12 +213,18 @@ export class MustadMenu extends LitElement {
       restaurant: { type: String },
       kafekroken: { type: Object },
       brightcafe: { type: Object },
+      hideDay: { type: Boolean, attribute: 'hide-day' },
+      hideRestaurant: { type: Boolean, attribute: 'hide-restaurant' },
+      hideRefresh: { type: Boolean, attribute: 'hide-refresh' },
     };
   }
 
   constructor() {
     super();
     this.restaurant = 'kafekroken';
+    this.hideday = false;
+    this.hideRestaurant = false;
+    this.hideRefresh = false;
     this.day = getDayOfTheWeek();
   }
 
@@ -316,6 +331,7 @@ export class MustadMenu extends LitElement {
 
   render() {
     let menu = '...Loading';
+    console.log(this.hideDay);
     if (this[this.restaurant]) {
       menu = this[this.restaurant][this.day];
     }
@@ -330,12 +346,20 @@ export class MustadMenu extends LitElement {
 
     return html`
       <div class="menu-container">
-        <div class="title">${this.restaurant}</div>
-        <div class="dayOfWeek">${this.day}</div>
+        <div class="title ${this.hideRestaurant ? 'hide' : ''}">
+          ${RESTAURANT_ALIAS[this.restaurant]}
+        </div>
+        <div class="dayOfWeek ${this.hideDay ? 'hide' : ''}">${this.day}</div>
         <div class="menu ${menu ? '' : 'error'}">
           ${menu || 'Error: meny ikke funnet!'}
         </div>
-        <button title="refresh" @click=${this.__fetchNow}>↺</button>
+        <button
+          class="${this.hideRefresh ? 'hide' : ''}"
+          title="refresh"
+          @click=${this.__fetchNow}
+        >
+          ↺
+        </button>
       </div>
     `;
   }
