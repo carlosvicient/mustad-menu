@@ -19,6 +19,83 @@ npm i @carlosvicient/mustad-menu
 
 <mustad-menu restaurant="kafekroken" day="Mandag"></mustad-menu>
 ```
+
+You can also import the component in static pages using a CDN.
+
+First, import the polyfills in case they are needed:
+
+````html
+<!-- Polyfills if needed -->
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
+`````
+
+Then, import the component using, for example, unpkg CDN as follows (you can replace `@latest` by the specific version you like):
+
+````html
+<!-- Load the Web Component via unpkg CDN -->
+  <script type="module" src="https://unpkg.com/@carlosvicient/mustad-menu@latest/mustad-menu.js?module"></script>
+````
+
+Then, you can use the component as you like. For example:
+
+````html
+<mustad-menu day="Onsdag"></mustad-menu>
+````
+
+Here you have a snippet you can try with some examples:
+
+````html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mustad-menu webcompnent | examples </title>
+  <style>
+
+    article {
+      max-width: 70ch;
+    }
+
+    #custom-styles {
+      --mustad-menu-background-color: black;
+      --mustad-menu-text-color: white;
+      --mustad-menu-font-family: Courier;
+      --mustad-menu-grid-gap: 1em;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Polyfills if needed -->
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
+  <!-- Load the Web Component via unpkg CDN -->
+  <script type="module" src="https://unpkg.com/@carlosvicient/mustad-menu@latest/mustad-menu.js?module"></script>
+
+  <h1>Examples <code>mustad-menu</code> web component</h1>
+  <article>
+    <h2>Default example</h2>
+    <mustad-menu></mustad-menu>
+  </article>
+
+  <article>
+    <h2>Specifying day of the week: Onsdag</h2>
+    <mustad-menu day="Onsdag"></mustad-menu>
+  </article>
+
+  <article>
+    <h2>Custom CSS styles</h2>
+    <p>Changing color, background color, font and grid gap</p>
+    <mustad-menu id="custom-styles"></mustad-menu>
+  </article>
+
+</body>
+
+</html>
+````
+
 ### restaurant
 
 Restaurant specifies the name of the "kantina" we want to retrieve the menu from. It only accepts two values. Be careful, the value is case sensitive.
