@@ -3,7 +3,7 @@
   "description": "Webcomponent mustad-menu following open-wc recommendations",
   "license": "MIT",
   "author": "mustad-menu",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "index.js",
   "module": "index.js",
   "type": "module",
