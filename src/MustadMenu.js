@@ -156,6 +156,7 @@ export class MustadMenu extends LitElement {
       :host .menu-container {
         display: grid;
         padding: var(--mustad-menu-padding, 1.5rem);
+        background-color: inherit;
 
         grid-template-rows: var(
           --mustad-menu-grid-template-rows,
@@ -167,8 +168,6 @@ export class MustadMenu extends LitElement {
         );
 
         align-items: var(--mustad-menu-align-items, center);
-
-        background-color: inherit;
       }
 
       :host .menu-container .title {
