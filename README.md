@@ -70,6 +70,7 @@ The layout of the component is set as a grid container. Consider the following h
 | --mustad-menu-padding  | padding of the ".menu-container"  |  1.5rem |
 | --mustad-menu-grid-template-rows  | grid-template-rows of the ".menu-container" | repeat(3, auto) |
 | --mustad-menu-grid-template-columns  | grid-template-columns of the ".menu-container" | 1fr min-content  |
+| --mustad-menu-grid-gap  | grid-gap of the ".menu-container"  |  0 |
 | --mustad-menu-align-items  | align-items of the ".menu-container"  |  center |
 | --mustad-menu-title-font-weight | font-weight of the ".title"  | bold |
 | --mustad-menu-title-font-size | font-size of the ".title"  | 0.8rem |

@@ -166,6 +166,7 @@ export class MustadMenu extends LitElement {
           --mustad-menu-grid-template-columns,
           1fr min-content
         );
+        grid-gap: var(--mustad-menu-grid-gap, 0);
 
         align-items: var(--mustad-menu-align-items, center);
       }
