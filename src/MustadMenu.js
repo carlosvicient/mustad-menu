@@ -39,7 +39,9 @@ function getDayOfTheWeek() {
 // }
 
 /*
-  FIRST PART TAKEN FROM::: https://github.com/jjyepez/minimal-js-scraper extractMenus is a custon new method for this component
+  FIRST PART TAKEN FROM::: https://github.com/jjyepez/minimal-js-scraper 
+    - extractMenus is a custon new method for this component
+    - Scraper no longer uses BASE_CORS to customise cors proxy
   Name   : minimal-js-scraper
   version: v0.1b
   author : @jjyepez
@@ -165,6 +167,8 @@ export class MustadMenu extends LitElement {
         );
 
         align-items: var(--mustad-menu-align-items, center);
+
+        background-color: inherit;
       }
 
       :host .menu-container .title {
