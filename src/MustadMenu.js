@@ -52,7 +52,11 @@ class Scraper {
     // --- this.BASE_CORS = "https://crossorigin.me/"
     // this.BASE_CORS = "https://cors-anywhere.herokuapp.com/"
     // this.BASE_CORS = "https://cors.io/?"
-    this.BASE_CORS = 'https://thingproxy.freeboard.io/fetch/';
+    // works in but problem with CDN (HTTP only cookie)
+    // this.BASE_CORS = 'https://thingproxy.freeboard.io/fetch/';
+    // this.BASE_CORS = 'https://folk.ntnu.no/carlosvm/proxy/index.php?url=';
+    // this.BASE_CORS = 'https://folk.ntnu.no/carlosvm/proxy/proxy.php?url=';
+    this.BASE_CORS = '';
     this.urlSrc = null;
     this.removeCRLF = removeCRLF;
     if (src) this.setSrc(src);
@@ -63,12 +67,26 @@ class Scraper {
   }
 
   async getHTML() {
-    const headers = {};
-    const src = this.urlSrc;
+    // const headers = {};
+
+    // const src = this.urlSrc;
+    // const rsp = await fetch(src, {
+    //   method: 'GET',
+    //   mode: 'cors',
+    // });
+
+    const data = {
+      cors: this.urlSrc, // endpoint URL
+      method: 'POST', // should be the same with endpoint request type
+      // endpoint data comes
+    };
+
+    // proxy
+    const src = 'https://folk.ntnu.no/carlosvm/proxy/proxy.php';
     const rsp = await fetch(src, {
-      method: 'GET',
-      mode: 'cors',
-      headers,
+      method: 'POST',
+      crossDomain: true,
+      body: JSON.stringify(data),
     });
     const rslt = await rsp.text();
     // if( this.removeCRLF ) rslt = rslt.replace(/\n/g,'').replace(/\r/g,'')
@@ -266,7 +284,7 @@ export class MustadMenu extends LitElement {
       }
     } catch (e) {
       // console.error(e instanceof SyntaxError);
-      console.log(e.message);
+      // console.log(e.message);
       fetchNew = false;
     }
 
