@@ -18,8 +18,8 @@ const RESTAURANTS = {
 };
 
 const RESTAURANT_ALIAS = {
-  kafekroken: 'Kafé Kroken',
-  brightcafe: 'Brigth Café',
+  kafekroken: 'Kroken-meny',
+  brightcafe: 'Brigth-meny',
 };
 
 /**
