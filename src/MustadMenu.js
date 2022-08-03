@@ -126,11 +126,19 @@ class Scraper {
     let i;
     const menus = {};
     for (i = 5; i >= 1; i -= 1) {
-      const dayMenu = strRawMenus.slice(
+      // getting menus from right to left.
+      let dayMenu = strRawMenus.slice(
         strRawMenus.indexOf(WEEKDAYS[i]),
         strRawMenus.length - 1
       );
+      // remove the extracted menu from the ones that have not been processed yet.
       strRawMenus = strRawMenus.replace(dayMenu, '');
+
+      // Adhoc regular expression to remove the first part of the menus (if existis).
+      // e.g.: "Onsdag LunsjKylling Tikka ..." turn into "Kylling Tikka Masala ..."
+      const regex = new RegExp(`[${WEEKDAYS[i]}](.+)Lunsj`, 'gi');
+      console.log('r:  ', regex.toString());
+      dayMenu = dayMenu.replace(regex, '').trim();
       // store/hash day
       // Tirsdag LunsjFiskekarbonade med råkost og kokte poteter.kr. 57,-/ 95,- Allergener: Fisk, Laktose
       // the string could be processed to remove the first part "day+lunsj". However, this is not constant all the weeks. Therefore, ignored from now.
@@ -257,7 +265,7 @@ export class MustadMenu extends LitElement {
         element => element.toLowerCase().trim() === weekDay.toLowerCase().trim()
       ) < 0
     ) {
-      error = `${weekDay}: dagikke funnet`;
+      error = `${weekDay}: dag ikke funnet`;
     }
 
     // No menu Sunday or Saturday.
@@ -265,7 +273,7 @@ export class MustadMenu extends LitElement {
       weekDay.toLowerCase().trim() === WEEKDAYS[0].toLowerCase().trim() ||
       weekDay.toLowerCase().trim() === WEEKDAYS[6].toLowerCase().trim()
     ) {
-      error = `${weekDay}: dag ikke funnet`;
+      error = `${weekDay}: Ingen servering lørdag-søndag.`;
     }
 
     // check if restaurant exists
