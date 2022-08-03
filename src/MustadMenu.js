@@ -190,6 +190,7 @@ export class MustadMenu extends LitElement {
 
       :host .menu-container .menu {
         grid-area: var(--mustad-menu-menu-grid-area, 3 / 1 / span 1 / span 2);
+        line-height: var(--mustad-menu-menu-line-height, 1.2);
       }
 
       :host .menu-container button {

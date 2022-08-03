@@ -206,6 +206,7 @@ The layout of the component is set as a grid container. Consider the following h
 | --mustad-menu-day-font-size | font-size of the ".day"  | 1.5rem |
 | --mustad-menu-day-grid-area | grid-area of the ".day"  | 2 / 1 / span 1 / span 2 |
 | --mustad-menu-menu-grid-area | grid-area of the ".menu"  | 3 / 1 / span 1 / span 2 |
+| --mustad-menu-menu-line-height | line-height of the ".menu"  | 1.2 |
 | --mustad-menu-error-color  | color of the text of the menu if it has the ".error" class  | #cc0000 |
 | --mustad-menu-button-grid-area | grid-area of the "button"  | 1 / 2 / span 1 / span 1 |
 
